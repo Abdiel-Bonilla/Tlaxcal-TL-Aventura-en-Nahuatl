@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PersonajeScript : MonoBehaviour
+public class MovimientoPersonaje : MonoBehaviour
 {
     public float Speed;
     public float JumpForce;
@@ -26,8 +26,8 @@ public class PersonajeScript : MonoBehaviour
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Horizontal < 0.0f) transform.localScale = new Vector3(-3.0f, 1.7f, 1.0f);
-        else if (Horizontal > 0.0f) transform.localScale = new Vector3(3.0f, 1.7f, 1.0f);
+        if (Horizontal < 0.0f) transform.localScale = new Vector3(-3.0f, 1.67f, 1.0f);
+        else if (Horizontal > 0.0f) transform.localScale = new Vector3(3.0f, 1.67f, 1.0f);
 
         Animator.SetBool("runing", Horizontal != 0.0f);
 
@@ -38,12 +38,19 @@ public class PersonajeScript : MonoBehaviour
         {
             Grounded = true;
         }
-        else Grounded = false;
+        else
+        {
+            Grounded = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.W) && Grounded)
         {
             Jump();
         }
+
+        // Agregar animaciones salto y caida
+        Animator.SetFloat("VerticalVelocity", Rigidbody2D.linearVelocity.y);
+        Animator.SetBool("isGrounded", Grounded);
     }
 
     private void Jump()
@@ -56,6 +63,5 @@ public class PersonajeScript : MonoBehaviour
         Rigidbody2D.linearVelocity = new Vector2(Horizontal * Speed, Rigidbody2D.linearVelocity.y);
     }
 
-
-
+   
 }
