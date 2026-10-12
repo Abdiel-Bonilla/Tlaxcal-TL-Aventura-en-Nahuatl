@@ -40,20 +40,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
- 
+
     public void RecolectarCarrete(int numero, string nombreNahuatl)
     {
         carretesRecolectados++;
         ActualizarContadorUI();
-
-
         MostrarMensajeEnPantalla(numero + " - " + nombreNahuatl);
 
+        // Notificar a la tablet 
+        if (TabletController.Instance != null)
+        {
+            TabletController.Instance.RegistrarNumero(numero);
+        }
 
         if (carretesRecolectados >= totalCarretesObjetivo)
         {
             Debug.Log("¡Todos los carretes recolectados! Listo para el reto del Guardián.");
-
         }
     }
 
