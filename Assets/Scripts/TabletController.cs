@@ -7,17 +7,16 @@ public class TabletController : MonoBehaviour
 
     [Header("UI de la Tablet")]
     public GameObject panelTabletDiccionario;
-    public TextMeshProUGUI textoListaDiccionario; 
+    public TextMeshProUGUI textoListaDiccionario;
 
     private bool tabletAbierta = false;
 
-    
     private string[] nombresNahuatl = {
-        "Ahtle", "Ce", "Ome", "Eyi", "Nahui",
+        "Ce", "Ome", "Eyi", "Nahui",
         "Macuilli", "Chicuace", "Chicome", "Chicueyi", "Chicnahui", "Mahtlactli"
     };
 
-    private bool[] descubiertos = new bool[11]; 
+    private bool[] descubiertos = new bool[11];
 
     private void Awake()
     {
@@ -29,7 +28,7 @@ public class TabletController : MonoBehaviour
     {
         if (panelTabletDiccionario != null)
         {
-            panelTabletDiccionario.SetActive(false); 
+            panelTabletDiccionario.SetActive(false);
         }
         ActualizarTextoTablet();
     }
@@ -46,7 +45,7 @@ public class TabletController : MonoBehaviour
     public void AlternarTablet()
     {
         tabletAbierta = !tabletAbierta;
-        if (panelTabletDiccionario != null)
+        if (panelTabletDiccionario != null) // o panelTabletDiccionario != null
         {
             panelTabletDiccionario.SetActive(tabletAbierta);
         }
@@ -68,17 +67,19 @@ public class TabletController : MonoBehaviour
     {
         if (textoListaDiccionario == null) return;
 
-        string contenido = "<b>DICCIONARIO MÁGICO ( Náhuatl)</b>\n\n";
+        string contenido = "<b>DICCIONARIO MÁGICO (Náhuatl)</b>\n\n";
 
         for (int i = 0; i < nombresNahuatl.Length; i++)
         {
+            int numeroMostrado = i + 1; // Inicia la numeración en 1
+
             if (descubiertos[i])
             {
-                contenido += $"[✅] {i} - {NombresMayus(nombresNahuatl[i])}\n";
+                contenido += $"[OK] {numeroMostrado}. {NombresMayus(nombresNahuatl[i])}\n";
             }
             else
             {
-                contenido += $"[🔒] {i} - ???\n";
+                contenido += $"[X] {numeroMostrado}. ???\n";
             }
         }
 
@@ -87,6 +88,7 @@ public class TabletController : MonoBehaviour
 
     string NombresMayus(string texto)
     {
+        if (string.IsNullOrEmpty(texto)) return texto;
         return char.ToUpper(texto[0]) + texto.Substring(1);
     }
 }

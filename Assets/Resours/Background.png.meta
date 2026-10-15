@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 2f340b76c89bc6446969ab6a7e9c0fdd
+guid: bb710b00bcd20944abad5f0c9468706d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8199513909392058369
-    second: carrete_0
-  - first:
-      213: -2604012203034689458
-    second: carrete_1
-  - first:
-      213: 1890664709985710667
-    second: carrete_2
-  - first:
-      213: -2623329456994327399
-    second: carrete_3
+      213: 2246275535701059214
+    second: Tienda de lanas en tonos apagados_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -135,89 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: carrete_0
+      name: Tienda de lanas en tonos apagados_0
       rect:
         serializedVersion: 2
-        x: 114
-        y: 1104
-        width: 370
-        height: 383
+        x: 0
+        y: 0
+        width: 1675
+        height: 939
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 108203c25768ac170800000000000000
-      internalID: 8199513909392058369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: carrete_1
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 742
-        width: 355
-        height: 324
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e40c55fa2b0bcdbd0800000000000000
-      internalID: -2604012203034689458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: carrete_2
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 358
-        width: 364
-        height: 346
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b42b01c598dfc3a10800000000000000
-      internalID: 1890664709985710667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: carrete_3
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 9
-        width: 359
-        height: 318
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 994e80302cf089bd0800000000000000
-      internalID: -2623329456994327399
+      spriteID: e86ac1dc2bf5c2f10800000000000000
+      internalID: 2246275535701059214
       vertices: []
       indices: 
       edges: []
@@ -226,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3dec9cfc3f628054cbe0eb2cb660ce75
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      carrete_0: 8199513909392058369
-      carrete_1: -2604012203034689458
-      carrete_2: 1890664709985710667
-      carrete_3: -2623329456994327399
+      Tienda de lanas en tonos apagados_0: 2246275535701059214
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
