@@ -11,11 +11,13 @@ public class TabletController : MonoBehaviour
 
     private bool tabletAbierta = false;
 
+    // Arreglo de palabras en náhuatl del 1 al 10
     private string[] nombresNahuatl = {
         "Ce", "Ome", "Eyi", "Nahui",
         "Macuilli", "Chicuace", "Chicome", "Chicueyi", "Chicnahui", "Mahtlactli"
     };
 
+    // Arreglo del tamaño 11 para poder usar los índices directos del 1 al 10
     private bool[] descubiertos = new bool[11];
 
     private void Awake()
@@ -45,7 +47,7 @@ public class TabletController : MonoBehaviour
     public void AlternarTablet()
     {
         tabletAbierta = !tabletAbierta;
-        if (panelTabletDiccionario != null) // o panelTabletDiccionario != null
+        if (panelTabletDiccionario != null)
         {
             panelTabletDiccionario.SetActive(tabletAbierta);
         }
@@ -56,9 +58,9 @@ public class TabletController : MonoBehaviour
 
     public void RegistrarNumero(int numero)
     {
-        if (numero >= 0 && numero < descubiertos.Length)
+        if (numero >= 1 && numero <= 10)
         {
-            descubiertos[numero] = true;
+            descubiertos[numero] = true; // Guarda directamente en el índice del 1 al 10
             ActualizarTextoTablet();
         }
     }
@@ -69,17 +71,19 @@ public class TabletController : MonoBehaviour
 
         string contenido = "<b>DICCIONARIO MÁGICO (Náhuatl)</b>\n\n";
 
-        for (int i = 0; i < nombresNahuatl.Length; i++)
+        // Iteramos del número 1 al 10
+        for (int num = 1; num <= 10; num++)
         {
-            int numeroMostrado = i + 1; // Inicia la numeración en 1
+            // El índice en nombresNahuatl va de 0 a 9 (num - 1)
+            string palabra = nombresNahuatl[num - 1];
 
-            if (descubiertos[i])
+            if (descubiertos[num])
             {
-                contenido += $"[OK] {numeroMostrado}. {NombresMayus(nombresNahuatl[i])}\n";
+                contenido += $"[OK] {num}. {NombresMayus(palabra)}\n";
             }
             else
             {
-                contenido += $"[X] {numeroMostrado}. ???\n";
+                contenido += $"[X] {num}. ???\n";
             }
         }
 
