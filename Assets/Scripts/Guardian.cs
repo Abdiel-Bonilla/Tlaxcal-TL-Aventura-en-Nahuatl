@@ -19,9 +19,9 @@ public class GuardianRango : MonoBehaviour
     public Button botonOpcion3;
 
     [Header("Mecanismo de la Puerta y Guardián")]
-    public SpriteRenderer spritePuerta;
-    public Sprite spritePuertaAbierta;
-    public Collider2D colliderPuerta;
+    public GameObject objetoPuertaCerrada;      // Objeto hijo o sprite de la puerta cerrada
+    public GameObject objetoPuertaAbierta;       // Objeto hijo o sprite de la puerta abierta
+    public Collider2D colliderPuertaSolida;     // El BoxCollider que bloquea el paso físicamente
     public SpriteRenderer spriteGuardian;
 
     [Header("Configuración del Reto")]
@@ -66,6 +66,10 @@ public class GuardianRango : MonoBehaviour
 
         if (canvasPrueba != null) canvasPrueba.SetActive(false);
         if (panelPreguntaNahuatl != null) panelPreguntaNahuatl.SetActive(false);
+
+        // Estado inicial de la puerta
+        if (objetoPuertaCerrada != null) objetoPuertaCerrada.SetActive(true);
+        if (objetoPuertaAbierta != null) objetoPuertaAbierta.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -263,15 +267,17 @@ public class GuardianRango : MonoBehaviour
 
         yield return new WaitForSeconds(3.5f);
 
-        if (spritePuerta != null && spritePuertaAbierta != null)
+        // 1. Abrir la puerta intercambiando los objetos hijos de la jerarquía
+        if (objetoPuertaCerrada != null) objetoPuertaCerrada.SetActive(false);
+        if (objetoPuertaAbierta != null) objetoPuertaAbierta.SetActive(true);
+
+        // 2. Desactivar el collider sólido para permitir el acceso al umbral
+        if (colliderPuertaSolida != null)
         {
-            spritePuerta.sprite = spritePuertaAbierta;
-        }
-        if (colliderPuerta != null)
-        {
-            colliderPuerta.enabled = false;
+            colliderPuertaSolida.enabled = false;
         }
 
+        // 3. Desvanecer al Guardián suavemente
         if (spriteGuardian != null)
         {
             float tiempo = 1.5f;
@@ -291,6 +297,11 @@ public class GuardianRango : MonoBehaviour
         {
             canvasPrueba.SetActive(false);
         }
+
+        yield return new WaitForSeconds(1.0f);
+
+        // Aquí puedes colocar tu cambio de escena al Nivel 2 cuando lo requieras:
+        // UnityEngine.SceneManagement.SceneManager.LoadScene("NombreDeTuEscenaNivel2");
 
         gameObject.SetActive(false);
     }
