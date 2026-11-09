@@ -157,9 +157,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 413
-        width: 85
-        height: 67
+        y: 417
+        width: 45
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: animacion_shainy_1
       rect:
         serializedVersion: 2
-        x: 170
-        y: 413
-        width: 85
-        height: 67
+        x: 180
+        y: 417
+        width: 45
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,10 +200,10 @@ TextureImporter:
       name: animacion_shainy_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 279
-        width: 85
-        height: 67
+        x: 45
+        y: 291
+        width: 45
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,12 +222,12 @@ TextureImporter:
       name: animacion_shainy_3
       rect:
         serializedVersion: 2
-        x: 204
-        y: 282
-        width: 85
-        height: 67
-      alignment: 9
-      pivot: {x: 0.51391333, y: 0.5}
+        x: 239
+        y: 285
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -244,10 +244,10 @@ TextureImporter:
       name: animacion_shainy_4
       rect:
         serializedVersion: 2
-        x: 85
-        y: 212
-        width: 85
-        height: 67
+        x: 241
+        y: 129
+        width: 45
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +266,10 @@ TextureImporter:
       name: animacion_shainy_5
       rect:
         serializedVersion: 2
-        x: 22
-        y: 145
-        width: 85
-        height: 67
+        x: 241
+        y: 129
+        width: 45
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: animacion_shainy_6
       rect:
         serializedVersion: 2
-        x: 222
-        y: 214
-        width: 85
-        height: 67
+        x: 120
+        y: 228
+        width: 45
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,10 +310,10 @@ TextureImporter:
       name: animacion_shainy_7
       rect:
         serializedVersion: 2
-        x: 170
-        y: 145
-        width: 85
-        height: 67
+        x: 241
+        y: 130
+        width: 45
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,10 +332,10 @@ TextureImporter:
       name: animacion_shainy_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 12
-        width: 85
-        height: 67
+        x: 265
+        y: 221
+        width: 45
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,10 +354,10 @@ TextureImporter:
       name: animacion_shainy_9
       rect:
         serializedVersion: 2
-        x: 170
-        y: 11
-        width: 85
-        height: 67
+        x: 52
+        y: 161
+        width: 45
+        height: 63
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,11 +372,165 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: animacion_shainy_10
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 130
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14194631604f6c44699856afa4e4e460
+      internalID: -836253105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacion_shainy_11
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 130
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2edbfc3ea78159742abf091860f295b0
+      internalID: 797891644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacion_shainy_12
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 150
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5909b2722738b214d9089875ecca7198
+      internalID: 919563676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacion_shainy_13
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 129
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c937579a543af8e42abbf66b68bb26c8
+      internalID: 1601514061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacion_shainy_14
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 129
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bbb7732c8ad409438c5a2da4d8a32b0
+      internalID: -1099162260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacion_shainy_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa19e8c7301b6c14d9ec7ab2da5860bf
+      internalID: -243143308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animacion_shainy_16
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 16
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81b0b61dff059c428306b38fd1a11be
+      internalID: -566622212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8c336488d0795194d8bcde6ddd9e8d73
+    spriteID: 7d7717cca883db94d99abb023e3bb849
     internalID: 0
     vertices: []
     indices: 
@@ -386,10 +540,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":85.0,"y":67.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":45.0,"y":63.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       animacion_shainy_0: 2428238095547183726
       animacion_shainy_1: 4862917535050886599
+      animacion_shainy_10: -836253105
+      animacion_shainy_11: 797891644
+      animacion_shainy_12: 919563676
+      animacion_shainy_13: 1601514061
+      animacion_shainy_14: -1099162260
+      animacion_shainy_15: -243143308
+      animacion_shainy_16: -566622212
       animacion_shainy_2: 8791676553611107531
       animacion_shainy_3: 5162473558317663013
       animacion_shainy_4: 1302623998540550219

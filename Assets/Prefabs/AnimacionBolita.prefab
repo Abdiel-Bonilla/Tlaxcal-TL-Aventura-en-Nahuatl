@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3505189562747310778}
   - component: {fileID: 4446088665945523918}
   m_Layer: 0
-  m_Name: animacion_shainy_0
+  m_Name: AnimacionBolita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
