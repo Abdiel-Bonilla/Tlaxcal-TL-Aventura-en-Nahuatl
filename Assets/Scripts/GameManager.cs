@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public float duracionMensaje = 2.5f;
     private Coroutine rutinaMensaje;
 
+    [Header("Efectos de Sonido (Náhuatl)")]
+    public AudioSource audioSource;
+    [Tooltip("Coloca aquí los 10 audios en orden: Element 0 = Ce (1), Element 1 = Ome (2), etc.")]
+    public AudioClip[] audiosNahuatl; // Arrastrarás los 10 audios aquí en el Inspector
+
     private void Awake()
     {
         if (Instance == null)
@@ -36,12 +41,27 @@ public class GameManager : MonoBehaviour
         {
             panelMensajeTemporal.SetActive(false);
         }
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     public void RecolectarCarrete(int numero, string nombreNahuatl)
     {
         carretesRecolectados++;
         ActualizarContadorUI();
+
+        // Reproducir el audio náhuatl correspondiente al número del carrete
+        int indiceAudio = numero - 1; // Restamos 1 porque los arreglos empiezan en 0
+        if (audioSource != null && audiosNahuatl != null && indiceAudio >= 0 && indiceAudio < audiosNahuatl.Length)
+        {
+            if (audiosNahuatl[indiceAudio] != null)
+            {
+                audioSource.PlayOneShot(audiosNahuatl[indiceAudio]);
+            }
+        }
 
         // Si es el último carrete, encadenamos los mensajes para que no se encimen
         if (carretesRecolectados >= totalCarretesObjetivo)

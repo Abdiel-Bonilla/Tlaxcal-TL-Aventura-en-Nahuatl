@@ -61,7 +61,7 @@ public class TransicionNivel : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
 
         // AQUÍ ES DONDE EN EL FUTURO CAMBIARÁS DE ESCENA:
-        // SceneManagement.SceneManager.LoadScene("NombreDeTuNivel2");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel2");
 
         Debug.Log("Transición completada. ¡Listo para el Nivel 2 cuando lo crees!");
     }
