@@ -75,7 +75,7 @@ public class TabletNivel2Controller : MonoBehaviour
             if (descubiertas[numeroPosicion])
             {
                 // Si ya fue descubierta, se muestra su número fijo y su grafía real
-                contenido += $"[✓] {numeroPosicion}. <b>{grafia}</b>\n";
+                contenido += $"[OK] {numeroPosicion}. <b>{grafia}</b>\n";
             }
             else
             {

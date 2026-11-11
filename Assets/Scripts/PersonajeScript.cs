@@ -60,7 +60,7 @@ public class MovimientoPersonaje : MonoBehaviour
         }
 
         // Lógica de Salto
-        if (Input.GetKeyDown(KeyCode.W) && Grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && Grounded)
         {
             Jump();
 

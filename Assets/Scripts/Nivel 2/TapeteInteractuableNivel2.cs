@@ -44,7 +44,7 @@ public class TapeteInteractuableNivel2 : MonoBehaviour
             bolita.gameObject.SetActive(false);
         }
 
-        Debug.Log("Tapete interactuado. Posición: " + posicionFijaTabla + " -> " + grafiaNahuatl);
+        Debug.Log("Tapete interactuado. Letra: " + " -> " + grafiaNahuatl);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

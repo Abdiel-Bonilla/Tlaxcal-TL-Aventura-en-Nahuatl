@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic; // Necesario para usar listas (List<int>)
 
 public class GuardianNivel2 : MonoBehaviour
 {
@@ -20,8 +21,8 @@ public class GuardianNivel2 : MonoBehaviour
 
     [Header("Indicador y Entorno (Puerta)")]
     public GameObject indicadorPulsaQUI;       // Aviso de "Pulsa Q"
-    public SpriteRenderer spritePuerta;        // El SpriteRenderer de la puerta del taller
-    public Sprite spritePuertaAbierta;         // El sprite de la puerta abierta
+    public GameObject objetoPuertaCerrada;     // Objeto hijo o sprite de la puerta cerrada
+    public GameObject objetoPuertaAbierta;     // Objeto hijo o sprite de la puerta abierta
     public Collider2D colisionadorPuerta;      // El colisionador físico de la puerta para desactivarlo al abrir
 
     private bool playerInRange = false;
@@ -49,11 +50,18 @@ public class GuardianNivel2 : MonoBehaviour
 
     private int preguntaActualIndex = 0;
 
+    // Lista para llevar el registro de las preguntas ya usadas en las 3 rondas actuales
+    private List<int> preguntasUsadasEnIntento = new List<int>();
+
     void Start()
     {
         if (panelDialogoPrincipal != null) panelDialogoPrincipal.SetActive(false);
         if (panelPreguntaGuardian != null) panelPreguntaGuardian.SetActive(false);
         if (indicadorPulsaQUI != null) indicadorPulsaQUI.SetActive(false);
+
+        // Asegurar estado inicial de la puerta
+        if (objetoPuertaCerrada != null) objetoPuertaCerrada.SetActive(true);
+        if (objetoPuertaAbierta != null) objetoPuertaAbierta.SetActive(false);
 
         // Configurar los botones de Sí / No iniciales
         if (botonSi != null) botonSi.onClick.AddListener(OnClicSi);
@@ -110,7 +118,7 @@ public class GuardianNivel2 : MonoBehaviour
         {
             if (textoDialogoUI != null)
             {
-                textoDialogoUI.text = "<b>Guardián del Conocimiento:</b>\n\n¡Aún no tienes todas las letras! Te falta explorar más tapetes en el taller (" + letrasActuales + "/17).\n\n<size=80%><i>[Presiona Enter para continuar]</i></size>";
+                textoDialogoUI.text = "<b>Guardián del Conocimiento:</b>\n\n¡Aún no tienes todas las letras! Te falta explorar más tapetes en el taller (" + letrasActuales + "/17).\n\n[Presiona Enter para continuar]";
 
                 if (botonSi != null) botonSi.gameObject.SetActive(false);
                 if (botonNo != null) botonNo.gameObject.SetActive(false);
@@ -123,6 +131,9 @@ public class GuardianNivel2 : MonoBehaviour
         // Si sí tiene las 17 letras, cerramos este panel e iniciamos la Ronda 1 de 3
         if (panelDialogoPrincipal != null) panelDialogoPrincipal.SetActive(false);
         rondaActual = 1;
+
+        // Limpiamos el historial al iniciar un nuevo intento de prueba
+        preguntasUsadasEnIntento.Clear();
         LanzarPreguntaRonda();
     }
 
@@ -130,7 +141,7 @@ public class GuardianNivel2 : MonoBehaviour
     {
         if (textoDialogoUI != null)
         {
-            textoDialogoUI.text = "<b>Guardián del Conocimiento:</b>\n\nVe a estudiar tu tableta y repasa las grafías. Te esperaré aquí cuando estés listo.\n\n<size=80%><i>[Presiona Enter para continuar]</i></size>";
+            textoDialogoUI.text = "<b>Guardián del Conocimiento:</b>\n\nVe a estudiar tu tableta y repasa las grafías. Te esperaré aquí cuando estés listo.\n\n[Presiona Enter para continuar]";
 
             // Ocultar los botones de Sí / No
             if (botonSi != null) botonSi.gameObject.SetActive(false);
@@ -154,7 +165,16 @@ public class GuardianNivel2 : MonoBehaviour
         {
             panelPreguntaGuardian.SetActive(true);
 
-            preguntaActualIndex = Random.Range(0, bancoPreguntas.Length);
+            // Buscar una pregunta que NO haya salido en este intento actual
+            do
+            {
+                preguntaActualIndex = Random.Range(0, bancoPreguntas.Length);
+            }
+            while (preguntasUsadasEnIntento.Contains(preguntaActualIndex));
+
+            // Guardamos esta pregunta en la lista de usadas para que no se repita en las siguientes rondas
+            preguntasUsadasEnIntento.Add(preguntaActualIndex);
+
             Pregunta p = bancoPreguntas[preguntaActualIndex];
 
             if (textoPreguntaUI != null)
@@ -187,17 +207,33 @@ public class GuardianNivel2 : MonoBehaviour
             }
             else
             {
-                // Pasar a la siguiente ronda
+                // Pasar a la siguiente ronda asegurando una pregunta nueva
                 LanzarPreguntaRonda();
             }
         }
         else
         {
-            // ¡Se equivocó! Se reinician las rondas a 1 y se le avisa
+            // ¡Se equivocó! Se reinician las rondas a 1 y se limpia el historial para que puedan salir de nuevo
             rondaActual = 1;
+            preguntasUsadasEnIntento.Clear();
+
             if (textoPreguntaUI != null)
             {
-                textoPreguntaUI.text = "<b>¡Respuesta incorrecta!</b>\nEl conocimiento falló. Las 3 rondas se reinician. ¡Vuelve a intentar!\n\n" + bancoPreguntas[preguntaActualIndex].enunciado;
+                // Al fallar y reiniciar, lanzamos de una vez una nueva pregunta limpia
+                preguntaActualIndex = Random.Range(0, bancoPreguntas.Length);
+                preguntasUsadasEnIntento.Add(preguntaActualIndex);
+                Pregunta p = bancoPreguntas[preguntaActualIndex];
+
+                textoPreguntaUI.text = "<b>¡Respuesta incorrecta!</b>\nEl conocimiento falló. Las 3 rondas se reinician. ¡Vuelve a intentar!\n\n" + p.enunciado;
+
+                for (int i = 0; i < botonesOpciones.Length; i++)
+                {
+                    int opcionIndex = i;
+                    textosBotonesUI[i].text = p.opciones[i];
+
+                    botonesOpciones[i].onClick.RemoveAllListeners();
+                    botonesOpciones[i].onClick.AddListener(() => ValidarRespuestaRonda(opcionIndex, p.indiceCorrecta));
+                }
             }
         }
     }
@@ -209,13 +245,11 @@ public class GuardianNivel2 : MonoBehaviour
 
         if (panelPreguntaGuardian != null) panelPreguntaGuardian.SetActive(false);
 
-        // 1. Cambiar el SpriteRenderer de la puerta a abierta
-        if (spritePuerta != null && spritePuertaAbierta != null)
-        {
-            spritePuerta.sprite = spritePuertaAbierta;
-        }
+        // 1. Intercambiar los objetos de la puerta (apagar cerrada, encender abierta con su fondo oscuro)
+        if (objetoPuertaCerrada != null) objetoPuertaCerrada.SetActive(false);
+        if (objetoPuertaAbierta != null) objetoPuertaAbierta.SetActive(true);
 
-        // 2. Desactivar el colisionador de la puerta para que el jugador pueda atravesarla
+        // 2. Desactivar el colisionador sólido de la puerta para permitir el paso
         if (colisionadorPuerta != null)
         {
             colisionadorPuerta.enabled = false;

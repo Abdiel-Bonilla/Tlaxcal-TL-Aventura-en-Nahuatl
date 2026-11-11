@@ -48,7 +48,7 @@ public class GameManagerNivel2 : MonoBehaviour
         letrasRecolectadas++;
         ActualizarContadorUI();
 
-        string mensaje = "¡Letra encontrada!\nPosición " + posicionFija + " - " + grafiaNahuatl;
+        string mensaje = "¡Letra encontrada!\n Letra " + " - " + grafiaNahuatl;
 
         if (letrasRecolectadas >= totalLetrasObjetivo)
         {
