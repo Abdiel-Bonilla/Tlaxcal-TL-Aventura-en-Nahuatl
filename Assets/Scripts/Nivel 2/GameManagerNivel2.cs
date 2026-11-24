@@ -6,17 +6,17 @@ public class GameManagerNivel2 : MonoBehaviour
 {
     public static GameManagerNivel2 Instance;
 
-    [Header("Contador Global (17 Letras del Abecedario)")]
-    public int totalLetrasObjetivo = 17;
-    private int letrasRecolectadas = 0;
-    public TextMeshProUGUI textoContadorUI; // Arrastra aquí tu texto de UI ej. "0/17"
+    [Header("Contador Global (10 Colores en Náhuatl)")]
+    public int totalColoresObjetivo = 10;
+    private int coloresRecolectados = 0;
+    public TextMeshProUGUI textoContadorUI; // Ejemplo: "0/10"
 
     [Header("Aviso Global de Interacción")]
-    public GameObject panelAvisoQGlobal; // Arrastra aquí el Panel que dice "Pulsa Q" desde tu Canvas
+    public GameObject panelAvisoQGlobal; // Panel que dice "Pulsa Q" en el Canvas
 
     [Header("Mensaje Temporal en Pantalla")]
-    public GameObject panelMensajeTemporal; // El recuadro o panel de fondo para "¡Letra encontrada!"
-    public TextMeshProUGUI textoMensajeUI;  // El texto dentro del recuadro
+    public GameObject panelMensajeTemporal; // Recuadro para mensajes temporales
+    public TextMeshProUGUI textoMensajeUI;  // Texto dentro del recuadro
     public float duracionMensaje = 2.5f;
     private Coroutine rutinaMensaje;
 
@@ -43,14 +43,19 @@ public class GameManagerNivel2 : MonoBehaviour
             panelAvisoQGlobal.SetActive(false);
     }
 
-    public void RecolectarLetra(int posicionFija, string grafiaNahuatl)
+    // Método principal para recolectar cada uno de los 10 colores
+    public void RegistrarColorRecolectado(string nombreNahuatl, int indiceColor = -1, string colorEspañol = "")
     {
-        letrasRecolectadas++;
+        coloresRecolectados++;
         ActualizarContadorUI();
 
-        string mensaje = "¡Letra encontrada!\n Letra " + " - " + grafiaNahuatl;
+        string detalleColor = string.IsNullOrEmpty(colorEspañol)
+            ? nombreNahuatl
+            : $"{nombreNahuatl} ({colorEspañol})";
 
-        if (letrasRecolectadas >= totalLetrasObjetivo)
+        string mensaje = $"¡Color descubierto!\n{detalleColor}";
+
+        if (coloresRecolectados >= totalColoresObjetivo)
         {
             StartCoroutine(SecuenciaFinal(mensaje));
         }
@@ -59,32 +64,50 @@ public class GameManagerNivel2 : MonoBehaviour
             MostrarMensajeEnPantalla(mensaje);
         }
 
-        // Comunicarnos con la Tablet del Nivel 2 usando la posición fija
-        if (TabletNivel2Controller.Instance != null)
+        // Si tu tableta tiene un método para registrar color o posición, puedes conectarlo aquí
+        if (TabletNivel2Controller.Instance != null && indiceColor >= 0)
         {
-            TabletNivel2Controller.Instance.RegistrarLetraPorPosicion(posicionFija);
+            TabletNivel2Controller.Instance.RegistrarLetraPorPosicion(indiceColor);
         }
     }
 
-    IEnumerator SecuenciaFinal(string mensajeUltimaLetra)
+    // Sobrecarga/compatibilidad por si algún script llama con un solo string
+    public void RegistrarColorRecolectado(string nombreNahuatl)
     {
-        MostrarMensajeEnPantalla(mensajeUltimaLetra);
+        RegistrarColorRecolectado(nombreNahuatl, -1, "");
+    }
+
+    // Compatibilidad por si algún script antiguo aún llama RecolectarLetra
+    public void RecolectarLetra(int posicionFija, string grafiaNahuatl)
+    {
+        RegistrarColorRecolectado(grafiaNahuatl, posicionFija, "");
+    }
+
+    IEnumerator SecuenciaFinal(string mensajeUltimoColor)
+    {
+        MostrarMensajeEnPantalla(mensajeUltimoColor);
         yield return new WaitForSeconds(duracionMensaje);
-        MostrarMensajeEnPantalla("¡Has completado todo el Abecedario Náhuatl de Contla!\n¡Nivel 2 Superado!");
+        MostrarMensajeEnPantalla("¡Has reunido todos los colores en náhuatl del taller!\n¡Ve a la prueba del Guardián del Conocimiento!");
     }
 
     void ActualizarContadorUI()
     {
         if (textoContadorUI != null)
         {
-            textoContadorUI.text = letrasRecolectadas + "/" + totalLetrasObjetivo;
+            textoContadorUI.text = coloresRecolectados + "/" + totalColoresObjetivo;
         }
     }
 
-    // Método público necesario para que el Guardián valide cuántas letras lleva
+    // Método que usa GuardianNivel2 para validar si ya juntó los 10 colores
+    public int GetColoresRecolectados()
+    {
+        return coloresRecolectados;
+    }
+
+    // Compatibilidad con el nombre anterior
     public int GetLetrasRecolectadas()
     {
-        return letrasRecolectadas;
+        return coloresRecolectados;
     }
 
     public void MostrarMensajeEnPantalla(string mensaje)

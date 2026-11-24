@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -196,3 +196,10 @@ MonoBehaviour:
   Speed: 4
   JumpForce: 240
   alturaPies: 0.34
+  audioSourceTlali: {fileID: 0}
+  audioSourceRespiracion: {fileID: 0}
+  sonidoSalto: {fileID: 0}
+  sonidoCorrer: {fileID: 0}
+  sonidoRespirar: {fileID: 0}
+  intervaloPasos: 0.35
+  tiempoParaComenzarRespirar: 1.5

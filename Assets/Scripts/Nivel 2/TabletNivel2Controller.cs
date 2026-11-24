@@ -1,33 +1,79 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TabletNivel2Controller : MonoBehaviour
 {
     public static TabletNivel2Controller Instance;
 
-    [Header("UI de la Tablet del Abecedario")]
+    [Header("UI de la Tablet de Colores (Tu diseño actual)")]
     public GameObject panelTabletDiccionario;       // El panel general de la tablet
-    public TextMeshProUGUI textoListaDiccionario;   // El texto con la lista ordenada del 1 al 17
+    public TextMeshProUGUI textoListaDiccionario;   // Tu texto con la lista ordenada del 1 al 10
+
+    [Header("Botones Play Enfrente de Cada Fila (1 al 10)")]
+    public Button[] botonesPlayPorColor;            // Arrastra aquí los 10 botones Play en orden (0 = color 1 ... 9 = color 10)
+    public AudioClip[] audiosPronunciacion;         // Los 10 clips de audio en el mismo orden (0 = color 1 ... 9 = color 10)
+    public bool ocultarBotonSiNoDescubierto = false; // Opcional: true para ocultarlo hasta desbloquear, false para solo deshabilitarlo
+
+    [Header("Audio Source de la Tablet")]
+    public AudioSource audioSourceTablet;
 
     private bool tabletAbierta = false;
 
-    // Las 17 grafías oficiales en su orden fijo (del 1 al 17)
-    private string[] grafiasNahuatl = {
-        "A", "CH", "E", "I", "K", "KW", "L", "M", "N", "O", "P", "S", "T", "TZ", "W", "X", "Y"
+    // Los 10 colores oficiales en náhuatl en su orden fijo (del 1 al 10)
+    private string[] coloresNahuatl = {
+        "Chichiltik",
+        "Chilkostik",
+        "Kostik",
+        "Xoxouik",
+        "Atenextik",
+        "Kamojti",
+        "Tlastaloltik",
+        "Tlikostik",
+        "Yayauik",
+        "Chipauak"
     };
 
-    // Arreglo booleano de tamaño 18 para rastrear del 1 al 17
-    private bool[] descubiertas = new bool[18];
+    private string[] coloresEspanol = {
+        "Rojo",
+        "Naranja",
+        "Amarillo",
+        "Verde",
+        "Azul",
+        "Morado",
+        "Rosa",
+        "Café",
+        "Gris / Oscuro",
+        "Blanco"
+    };
+
+    // Arreglo booleano de tamaño 11 para rastrear posiciones del 1 al 10
+    private bool[] descubiertos = new bool[11];
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        if (audioSourceTablet == null)
+        {
+            audioSourceTablet = GetComponent<AudioSource>();
+        }
+
+        if (audioSourceTablet == null)
+        {
+            audioSourceTablet = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Permite escuchar el audio aunque el juego esté pausado al abrir la tablet
+        audioSourceTablet.ignoreListenerPause = true;
+        audioSourceTablet.playOnAwake = false;
     }
 
     private void Start()
     {
         if (panelTabletDiccionario != null) panelTabletDiccionario.SetActive(false);
+        ConfigurarBotonesPlay();
         ActualizarTextoTablet();
     }
 
@@ -40,6 +86,38 @@ public class TabletNivel2Controller : MonoBehaviour
         }
     }
 
+    private void ConfigurarBotonesPlay()
+    {
+        if (botonesPlayPorColor == null) return;
+
+        for (int i = 0; i < botonesPlayPorColor.Length; i++)
+        {
+            if (botonesPlayPorColor[i] == null) continue;
+
+            int indiceAudio = i;
+            int posicionColor = i + 1;
+
+            botonesPlayPorColor[i].onClick.RemoveAllListeners();
+            botonesPlayPorColor[i].onClick.AddListener(() => ReproducirAudioColor(indiceAudio, posicionColor));
+        }
+    }
+
+    public void ReproducirAudioColor(int indiceArray, int posicionColor)
+    {
+        if (posicionColor < 1 || posicionColor > 10 || !descubiertos[posicionColor]) return;
+
+        if (audiosPronunciacion != null && indiceArray >= 0 && indiceArray < audiosPronunciacion.Length)
+        {
+            AudioClip clip = audiosPronunciacion[indiceArray];
+            if (clip != null && audioSourceTablet != null)
+            {
+                audioSourceTablet.Stop();
+                audioSourceTablet.clip = clip;
+                audioSourceTablet.Play();
+            }
+        }
+    }
+
     public void AlternarTablet()
     {
         tabletAbierta = !tabletAbierta;
@@ -47,43 +125,66 @@ public class TabletNivel2Controller : MonoBehaviour
         {
             panelTabletDiccionario.SetActive(tabletAbierta);
         }
-        Time.timeScale = tabletAbierta ? 0f : 1f; // Pausa el juego opcionalmente
+
+        if (!tabletAbierta && audioSourceTablet != null && audioSourceTablet.isPlaying)
+        {
+            audioSourceTablet.Stop();
+        }
+
+        Time.timeScale = tabletAbierta ? 0f : 1f;
     }
 
-    // Método para desbloquear una posición fija del 1 al 17
-    public void RegistrarLetraPorPosicion(int posicionFija)
+    // Método para desbloquear una posición fija del 1 al 10
+    public void RegistrarColorPorPosicion(int posicionFija)
     {
-        if (posicionFija >= 1 && posicionFija <= 17)
+        if (posicionFija >= 1 && posicionFija <= 10)
         {
-            descubiertas[posicionFija] = true;
+            descubiertos[posicionFija] = true;
             ActualizarTextoTablet();
         }
     }
 
+    // Compatibilidad con el nombre anterior
+    public void RegistrarLetraPorPosicion(int posicionFija)
+    {
+        RegistrarColorPorPosicion(posicionFija);
+    }
+
     void ActualizarTextoTablet()
     {
-        if (textoListaDiccionario == null) return;
+        string contenido = "<b>COLORES EN NÁHUATL</b>\n\n";
 
-        string contenido = "<b>ABECEDARIO NÁHUATL </b>\n\n";
-
-        // Se dibuja la lista siempre ordenada del 1 al 17
-        for (int i = 0; i < grafiasNahuatl.Length; i++)
+        for (int i = 0; i < coloresNahuatl.Length; i++)
         {
-            int numeroPosicion = i + 1; // Posición del 1 al 17
-            string grafia = grafiasNahuatl[i];
+            int numeroPosicion = i + 1; // Posición del 1 al 10
+            string colorNah = coloresNahuatl[i];
+            string colorEsp = coloresEspanol[i];
+            bool estaDescubierto = descubiertos[numeroPosicion];
 
-            if (descubiertas[numeroPosicion])
+            if (estaDescubierto)
             {
-                // Si ya fue descubierta, se muestra su número fijo y su grafía real
-                contenido += $"[OK] {numeroPosicion}. <b>{grafia}</b>\n";
+                contenido += $"[OK] {numeroPosicion}. <b>{colorNah}</b> ({colorEsp})\n";
             }
             else
             {
-                // Si aún no se encuentra, se muestra bloqueada en su lugar fijo
                 contenido += $"[X] {numeroPosicion}. ???\n";
+            }
+
+            // Actualizar el estado del botón Play correspondiente a esta fila
+            if (botonesPlayPorColor != null && i < botonesPlayPorColor.Length && botonesPlayPorColor[i] != null)
+            {
+                botonesPlayPorColor[i].interactable = estaDescubierto;
+
+                if (ocultarBotonSiNoDescubierto)
+                {
+                    botonesPlayPorColor[i].gameObject.SetActive(estaDescubierto);
+                }
             }
         }
 
-        textoListaDiccionario.text = contenido;
+        if (textoListaDiccionario != null)
+        {
+            textoListaDiccionario.text = contenido;
+        }
     }
 }

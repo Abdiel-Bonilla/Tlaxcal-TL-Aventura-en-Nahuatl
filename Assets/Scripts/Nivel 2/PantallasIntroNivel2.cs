@@ -25,7 +25,7 @@ public class PantallasIntroNivel2 : MonoBehaviour
         if (textoBienvenida != null)
         {
             textoBienvenida.text = "<b>¡Bienvenido al Nivel 2 del Taller Textil!</b>\n\n" +
-                                   "Has llegado al corazón de Contla para descubrir los secretos del abecedario náhuatl.\n\n" +
+                                   "Has llegado al corazón de Contla para descubrir los secretos de los colores en náhuatl.\n\n" +
                                    "[ Presiona ENTER para continuar ]";
         }
 
@@ -42,7 +42,7 @@ public class PantallasIntroNivel2 : MonoBehaviour
         if (textoNivel3 != null)
         {
             textoNivel3.text = "<b>¡Reto Nivel 2!</b>\n\n" +
-                               "Explora el taller, recolecta las letras escondidas en los telares y prepárate para superar la prueba del Guardián del Conocimiento.\n\n" +
+                               "Explora el taller, recolecta los colores escondidas en los telares y prepárate para superar la prueba del Guardián del Conocimiento.\n\n" +
                                "[ Presiona ENTER para comenzar el juego ]";
         }
 
