@@ -97,7 +97,7 @@ public class GuardianNivel3 : MonoBehaviour
 
             if (textoDialogoUI != null)
             {
-                textoDialogoUI.text = "<b>Guardián de la Galería:</b>\n\n¿Estás listo para demostrar que dominas las 8 palabras cotidianas en náhuatl?";
+                textoDialogoUI.text = "<b>Guardián del conocimiento:</b>\n\n¿Estás listo para demostrar que dominas las palabras en náhuatl?";
             }
 
             if (botonSi != null) botonSi.gameObject.SetActive(true);
@@ -117,7 +117,7 @@ public class GuardianNivel3 : MonoBehaviour
         {
             if (textoDialogoUI != null)
             {
-                textoDialogoUI.text = $"<b>Guardián de la Galería:</b>\n\n¡Aún no tienes todas las palabras! Habla con los NPCs de la tienda ({palabrasActuales}/{totalPalabrasNecesarias}).\n\n[Presiona Enter para continuar]";
+                textoDialogoUI.text = $"<b>Guardián del conocimiento:</b>\n¡Aún no tienes todas las palabras! Habla con las personas de la tienda ({palabrasActuales}/{totalPalabrasNecesarias}).\n\n[Presiona Enter para continuar]";
 
                 if (botonSi != null) botonSi.gameObject.SetActive(false);
                 if (botonNo != null) botonNo.gameObject.SetActive(false);
@@ -137,7 +137,7 @@ public class GuardianNivel3 : MonoBehaviour
     {
         if (textoDialogoUI != null)
         {
-            textoDialogoUI.text = "<b>Guardián de la Galería:</b>\n\nPuedes repasar las palabras y escuchar su pronunciación en tu tableta con E. Te esperaré aquí.\n\n[Presiona Enter para continuar]";
+            textoDialogoUI.text = "<b>Guardián del conocimiento:</b>\nPuedes repasar las palabras y escuchar su pronunciación en tu tableta con E. Te esperaré aquí.\n\n[Presiona Enter para continuar]";
 
             if (botonSi != null) botonSi.gameObject.SetActive(false);
             if (botonNo != null) botonNo.gameObject.SetActive(false);

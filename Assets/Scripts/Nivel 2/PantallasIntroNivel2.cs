@@ -24,7 +24,7 @@ public class PantallasIntroNivel2 : MonoBehaviour
         // Asignar los textos automáticamente al iniciar
         if (textoBienvenida != null)
         {
-            textoBienvenida.text = "<b>¡Bienvenido al Nivel 2 del Taller Textil!</b>\n\n" +
+            textoBienvenida.text = "<b>¡Bienvenido al Nivel 2: del Taller Textil!</b>\n\n" +
                                    "Has llegado al corazón de Contla para descubrir los secretos de los colores en náhuatl.\n\n" +
                                    "[ Presiona ENTER para continuar ]";
         }

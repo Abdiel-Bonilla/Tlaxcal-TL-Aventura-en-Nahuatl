@@ -142,7 +142,7 @@ public class TabletNivel3Controller : MonoBehaviour
 
     void ActualizarTextoTablet()
     {
-        string contenido = "<b>GALERÍA DE PALABRAS (Español / Náhuatl)</b>\n\n";
+        string contenido = "<b>GALERÍA DE PALABRAS </b>\n\n";
 
         for (int i = 0; i < palabrasEspanol.Length; i++)
         {
