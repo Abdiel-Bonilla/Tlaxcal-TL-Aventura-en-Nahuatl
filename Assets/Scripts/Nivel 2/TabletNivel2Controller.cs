@@ -28,7 +28,7 @@ public class TabletNivel2Controller : MonoBehaviour
         "Xoxouik",
         "Atenextik",
         "Kamojti",
-        "Tlastaloltik",
+        "Xochipaltik",
         "Tlikostik",
         "Yayauik",
         "Chipauak"
@@ -43,7 +43,7 @@ public class TabletNivel2Controller : MonoBehaviour
         "Morado",
         "Rosa",
         "Café",
-        "Gris / Oscuro",
+        "Negro / Oscuro",
         "Blanco"
     };
 
