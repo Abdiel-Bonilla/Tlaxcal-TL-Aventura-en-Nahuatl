@@ -8320,7 +8320,7 @@ MonoBehaviour:
   posicionPalabra: 4
   palabraEspanol: Agua
   palabraNahuatl: Atl
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 6907e017f53fbf4408f9fe45f570206e, type: 3}
   burbujaCabeza: {fileID: 213049145}
   teclaInteraccion: 113
 --- !u!70 &213049148
@@ -10671,7 +10671,7 @@ MonoBehaviour:
   posicionPalabra: 6
   palabraEspanol: Tortilla
   palabraNahuatl: Tlaxcalli
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 8ebb347bea6181c4e943ecd256d850c4, type: 3}
   burbujaCabeza: {fileID: 364073306}
   teclaInteraccion: 113
 --- !u!70 &364073309
@@ -17601,7 +17601,7 @@ MonoBehaviour:
   posicionPalabra: 2
   palabraEspanol: Flor
   palabraNahuatl: Xochitl
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: e0998bbf7113a6d42acd13995fe823de, type: 3}
   burbujaCabeza: {fileID: 2069043840}
   teclaInteraccion: 113
 --- !u!70 &747511263
@@ -22800,14 +22800,14 @@ MonoBehaviour:
   - {fileID: 1187018335}
   - {fileID: 648197087}
   audiosPronunciacion:
-  - {fileID: 8300000, guid: 49d92cfebeb2aa6439e990e8a267dae4, type: 3}
-  - {fileID: 8300000, guid: e5692c1d1cc770646880e504648671d6, type: 3}
-  - {fileID: 8300000, guid: 1a292098eb616274280e8559580052b0, type: 3}
-  - {fileID: 8300000, guid: 17b61fe3b7c97a64d8eda883cb6ce602, type: 3}
-  - {fileID: 8300000, guid: 6a9efb49266604742b8b98689cce9254, type: 3}
-  - {fileID: 8300000, guid: b77f9541823f8234f974895e0e8ab45b, type: 3}
-  - {fileID: 8300000, guid: 7c3d1e815191b9e4b95ba112fcac9023, type: 3}
-  - {fileID: 8300000, guid: 8cf652a3f0f4515408bf052424a0bfac, type: 3}
+  - {fileID: 8300000, guid: 17b6676164935cd488cc35dfef6fd616, type: 3}
+  - {fileID: 8300000, guid: e0998bbf7113a6d42acd13995fe823de, type: 3}
+  - {fileID: 8300000, guid: 0dbd6bdea3d8f6c49929f9806d297775, type: 3}
+  - {fileID: 8300000, guid: 6907e017f53fbf4408f9fe45f570206e, type: 3}
+  - {fileID: 8300000, guid: a1e59b71350147141aa62257b293bc88, type: 3}
+  - {fileID: 8300000, guid: 8ebb347bea6181c4e943ecd256d850c4, type: 3}
+  - {fileID: 8300000, guid: 6eeb37134e07cc845b8fc97c7f038877, type: 3}
+  - {fileID: 8300000, guid: 228f8f7cd4547dd469e1f0a4fb90bbc3, type: 3}
   ocultarBotonSiNoDescubierto: 1
   audioSourceTablet: {fileID: 0}
 --- !u!4 &1282039649
@@ -25235,7 +25235,7 @@ MonoBehaviour:
   posicionPalabra: 5
   palabraEspanol: Perro
   palabraNahuatl: Itzcuintli
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: a1e59b71350147141aa62257b293bc88, type: 3}
   burbujaCabeza: {fileID: 1690840984}
   teclaInteraccion: 113
 --- !u!70 &1690840987
@@ -26928,8 +26928,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCPalabraNivel3
   posicionPalabra: 7
   palabraEspanol: Mujer
-  palabraNahuatl: Cihuatl
-  audioPronunciacion: {fileID: 0}
+  palabraNahuatl: Sihuatl
+  audioPronunciacion: {fileID: 8300000, guid: 6eeb37134e07cc845b8fc97c7f038877, type: 3}
   burbujaCabeza: {fileID: 347932445}
   teclaInteraccion: 113
 --- !u!70 &1794994314
@@ -27932,8 +27932,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCPalabraNivel3
   posicionPalabra: 3
   palabraEspanol: Gato
-  palabraNahuatl: Miztli
-  audioPronunciacion: {fileID: 0}
+  palabraNahuatl: Miston
+  audioPronunciacion: {fileID: 8300000, guid: 0dbd6bdea3d8f6c49929f9806d297775, type: 3}
   burbujaCabeza: {fileID: 1892396118}
   teclaInteraccion: 113
 --- !u!70 &1892396121
@@ -30337,8 +30337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCPalabraNivel3
   posicionPalabra: 8
   palabraEspanol: Hombre
-  palabraNahuatl: Oquichtli
-  audioPronunciacion: {fileID: 0}
+  palabraNahuatl: Tlacatl
+  audioPronunciacion: {fileID: 8300000, guid: 228f8f7cd4547dd469e1f0a4fb90bbc3, type: 3}
   burbujaCabeza: {fileID: 1843441241}
   teclaInteraccion: 113
 --- !u!70 &2051527193
@@ -59150,7 +59150,7 @@ MonoBehaviour:
   posicionPalabra: 1
   palabraEspanol: Luna
   palabraNahuatl: Metztli
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 17b6676164935cd488cc35dfef6fd616, type: 3}
   burbujaCabeza: {fileID: 5197697779757184655}
   teclaInteraccion: 113
 --- !u!70 &5197697779757184658

@@ -34,12 +34,12 @@ public class TabletNivel3Controller : MonoBehaviour
     private string[] palabrasNahuatl = {
         "Metztli",
         "Xochitl",
-        "Miztli",
+        "Miston",
         "Atl",
         "Itzcuintli",
         "Tlaxcalli",
-        "Cihuatl",
-        "Oquichtli"
+        "Sihuatl",
+        "Tlacatl"
     };
 
     private bool tabletAbierta = false;

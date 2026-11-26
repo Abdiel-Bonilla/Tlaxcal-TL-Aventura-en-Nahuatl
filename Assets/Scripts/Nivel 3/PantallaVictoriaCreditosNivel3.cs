@@ -31,8 +31,8 @@ public class PantallaVictoriaCreditosNivel3 : MonoBehaviour
     public RectTransform rectContenedorCreditos; // Arrastra aquí TextoCreditosAscendentes
     public TextMeshProUGUI textoCreditosUI;    // Arrastra aquí el mismo TextoCreditosAscendentes
     public float posicionYInicial = -350f;
-    public float posicionYFinal = 350f;
-    public float velocidadSubidaCreditos = 60f;
+    public float posicionYFinal = 520f;
+    public float velocidadSubidaCreditos = 65f;
     public float pausaAlTerminarCreditos = 1.2f;
 
     [Header("Botón Menú de Inicio (Game Over)")]
@@ -158,25 +158,49 @@ public class PantallaVictoriaCreditosNivel3 : MonoBehaviour
 
         string[] lineasCreditos = new string[]
         {
-            "<b>TLAXCAL-TL</b>",
-            "Aventura Educativa en Náhuatl",
+            "<b>TLAXCAL-TL: AVENTURA EN NÁHUATL</b>",
             "",
-            "<b>Dirección y Desarrollo</b>",
-            "Abdiel Isaí Bonilla Romano",
-            "Brandon Candaneda Gonzalez",
+            "<b>Desarrollo, Arquitectura y Programación</b>",
+            "- Brandon Candaneda González",
+            "- Abdiel Isaí Bonilla Romano",
             "",
-            "<b>Diseño de Niveles y Mecánicas</b>",
-            "Nivel 1 • Nivel 2 • Nivel 3",
-            "Galería de Artesanías y Taller",
+            "<b>Asesoría Académica y Técnica</b>",
+            "- Dra. Sonia López Rodríguez",
             "",
-            "<b>Vocabulario y Audios en Náhuatl</b>",
-            "Preservación Cultural de Tlaxcala",
+            "<b>Audio y voces en náhuatl</b>",
+            "- Dolores Romano Hernandez",
             "",
-            "<b>Arte, Animación y UI</b>",
-            "Personaje Tlali, NPCs y Tableta Interactiva",
+            "<b>Contexto Académico</b>",
+            "- Asignatura: Optativa de Creación de Videojuegos",
+            "- Carrera: Ingeniería en Desarrollo y Gestión de Software (IDGS) — 10° A",
+            "- Universidad Tecnológica de Tlaxcala (UTT)",
             "",
-            "<b>Agradecimientos Especiales</b>",
-            "A quienes juegan y aprenden náhuatl"
+            "<b>Arquitectura y Motor Gráfico</b>",
+            "- Motor de juego: Unity 6.3 LTS (Universal Render Pipeline 2D - URP)",
+            "- Lenguaje de programación: C# (.NET)",
+            "- Entorno de desarrollo (IDE): Visual Studio Community 2022",
+            "- Control de versiones: Git & GitHub",
+            "",
+            "<b>Sistemas y Mecánicas Implementadas</b>",
+            "- Diseño de niveles: Grid & Tilemap System con Tilemap Collider 2D y Composite Collider 2D",
+            "- Físicas y movimiento: Rigidbody 2D, Raycast 2D para detección de superficie y Capsule Collider 2D",
+            "- Sistema de animación: Animator Controller con máquina de estados y parámetros dinámicos",
+            "- Inteligencia y eventos: Detección por áreas Trigger (Circle Collider 2D) para interacción con el Guardián",
+            "- Cámara: Script dinámico de seguimiento continuo (CameraFollow)",
+            "- Interfaz de usuario (UI): Unity Canvas, TextMeshPro y sistema interactivo de la Tablet Digital de Tlali (Diccionario Mágico)",
+            "",
+            "<b>Arte, Diseño y Metodología</b>",
+            "- Diseño gráfico y animación: Pixel Art en Piskel (sprites, hojas de animación y tilesets)",
+            "- Metodología de diseño: Player-Centered Design (PCD) y Teoría de la Autodeterminación (SDT)",
+            "- Estándares aplicados: ISO 9241-210 (Diseño Centrado en el Usuario) e ISO/IEC 25010 (Calidad de Software)",
+            "- Plataformas de compilación: Windows Standalone (.exe) y WebGL",
+            "",
+            "<b>Inspiración Cultural y Documentación Lingüística</b>",
+            "- Municipio de Contla de Juan Cuamatzi, Tlaxcala — \"Cuna del Sarape\"",
+            "- Tradición textil artesanal, telares de pedal y preservación de la variante local del náhuatl",
+            "- Fuentes institucionales de referencia: INALI, INAH e INEGI",
+            "",
+            "<b>¡Gracias por jugar y contribuir a la preservación de la lengua náhuatl y el patrimonio textil de Tlaxcala!</b>"
         };
 
         StringBuilder sb = new StringBuilder();

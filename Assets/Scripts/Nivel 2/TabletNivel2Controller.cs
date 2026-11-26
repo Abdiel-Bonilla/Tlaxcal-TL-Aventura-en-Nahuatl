@@ -11,16 +11,18 @@ public class TabletNivel2Controller : MonoBehaviour
     public TextMeshProUGUI textoListaDiccionario;   // Tu texto con la lista ordenada del 1 al 10
 
     [Header("Botones Play Enfrente de Cada Fila (1 al 10)")]
-    public Button[] botonesPlayPorColor;            // Arrastra aquí los 10 botones Play en orden (0 = color 1 ... 9 = color 10)
-    public AudioClip[] audiosPronunciacion;         // Los 10 clips de audio en el mismo orden (0 = color 1 ... 9 = color 10)
-    public bool ocultarBotonSiNoDescubierto = false; // Opcional: true para ocultarlo hasta desbloquear, false para solo deshabilitarlo
+    public Button[] botonesPlayPorColor;            // 10 botones Play en orden (0 = color 1 ... 9 = color 10)
+    public AudioClip[] audiosPronunciacion;         // 10 clips de audio en el mismo orden (0 = color 1 ... 9 = color 10)
+    public bool ocultarBotonSiNoDescubierto = false; // true para ocultar hasta desbloquear, false para deshabilitar
+    public bool permitirAudioSinDescubrir = false;  // Déjalo en false para juego normal; true solo para probar audios
 
     [Header("Audio Source de la Tablet")]
     public AudioSource audioSourceTablet;
+    [Range(0f, 1f)]
+    public float volumenAudioTablet = 1f;
 
     private bool tabletAbierta = false;
 
-    // Los 10 colores oficiales en náhuatl en su orden fijo (del 1 al 10)
     private string[] coloresNahuatl = {
         "Chichiltik",
         "Chilkostik",
@@ -47,7 +49,6 @@ public class TabletNivel2Controller : MonoBehaviour
         "Blanco"
     };
 
-    // Arreglo booleano de tamaño 11 para rastrear posiciones del 1 al 10
     private bool[] descubiertos = new bool[11];
 
     private void Awake()
@@ -65,9 +66,10 @@ public class TabletNivel2Controller : MonoBehaviour
             audioSourceTablet = gameObject.AddComponent<AudioSource>();
         }
 
-        // Permite escuchar el audio aunque el juego esté pausado al abrir la tablet
         audioSourceTablet.ignoreListenerPause = true;
         audioSourceTablet.playOnAwake = false;
+        audioSourceTablet.mute = false;
+        audioSourceTablet.volume = volumenAudioTablet;
     }
 
     private void Start()
@@ -79,7 +81,6 @@ public class TabletNivel2Controller : MonoBehaviour
 
     private void Update()
     {
-        // Abrir/Cerrar tablet con Tab o E
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.E))
         {
             AlternarTablet();
@@ -104,18 +105,38 @@ public class TabletNivel2Controller : MonoBehaviour
 
     public void ReproducirAudioColor(int indiceArray, int posicionColor)
     {
-        if (posicionColor < 1 || posicionColor > 10 || !descubiertos[posicionColor]) return;
+        if (posicionColor < 1 || posicionColor > 10) return;
 
-        if (audiosPronunciacion != null && indiceArray >= 0 && indiceArray < audiosPronunciacion.Length)
+        if (!permitirAudioSinDescubrir && !descubiertos[posicionColor])
         {
-            AudioClip clip = audiosPronunciacion[indiceArray];
-            if (clip != null && audioSourceTablet != null)
-            {
-                audioSourceTablet.Stop();
-                audioSourceTablet.clip = clip;
-                audioSourceTablet.Play();
-            }
+            Debug.LogWarning($"El color en posición {posicionColor} aún no está descubierto.");
+            return;
         }
+
+        if (audiosPronunciacion == null || indiceArray < 0 || indiceArray >= audiosPronunciacion.Length)
+        {
+            Debug.LogWarning($"No hay clip de audio asignado en el índice {indiceArray}.");
+            return;
+        }
+
+        AudioClip clip = audiosPronunciacion[indiceArray];
+        if (clip == null)
+        {
+            Debug.LogWarning($"El AudioClip en el índice {indiceArray} está vacío (None).");
+            return;
+        }
+
+        if (audioSourceTablet == null)
+        {
+            Debug.LogWarning("No hay AudioSource asignado en TabletNivel2Controller.");
+            return;
+        }
+
+        audioSourceTablet.mute = false;
+        audioSourceTablet.volume = volumenAudioTablet;
+        audioSourceTablet.Stop();
+        audioSourceTablet.clip = clip;
+        audioSourceTablet.Play();
     }
 
     public void AlternarTablet()
@@ -134,7 +155,6 @@ public class TabletNivel2Controller : MonoBehaviour
         Time.timeScale = tabletAbierta ? 0f : 1f;
     }
 
-    // Método para desbloquear una posición fija del 1 al 10
     public void RegistrarColorPorPosicion(int posicionFija)
     {
         if (posicionFija >= 1 && posicionFija <= 10)
@@ -144,7 +164,6 @@ public class TabletNivel2Controller : MonoBehaviour
         }
     }
 
-    // Compatibilidad con el nombre anterior
     public void RegistrarLetraPorPosicion(int posicionFija)
     {
         RegistrarColorPorPosicion(posicionFija);
@@ -156,7 +175,7 @@ public class TabletNivel2Controller : MonoBehaviour
 
         for (int i = 0; i < coloresNahuatl.Length; i++)
         {
-            int numeroPosicion = i + 1; // Posición del 1 al 10
+            int numeroPosicion = i + 1;
             string colorNah = coloresNahuatl[i];
             string colorEsp = coloresEspanol[i];
             bool estaDescubierto = descubiertos[numeroPosicion];
@@ -170,14 +189,14 @@ public class TabletNivel2Controller : MonoBehaviour
                 contenido += $"[X] {numeroPosicion}. ???\n";
             }
 
-            // Actualizar el estado del botón Play correspondiente a esta fila
             if (botonesPlayPorColor != null && i < botonesPlayPorColor.Length && botonesPlayPorColor[i] != null)
             {
-                botonesPlayPorColor[i].interactable = estaDescubierto;
+                bool habilitado = permitirAudioSinDescubrir || estaDescubierto;
+                botonesPlayPorColor[i].interactable = habilitado;
 
                 if (ocultarBotonSiNoDescubierto)
                 {
-                    botonesPlayPorColor[i].gameObject.SetActive(estaDescubierto);
+                    botonesPlayPorColor[i].gameObject.SetActive(habilitado);
                 }
             }
         }

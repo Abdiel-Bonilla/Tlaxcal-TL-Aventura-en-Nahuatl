@@ -736,7 +736,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4989,7 +4989,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8659,7 +8659,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9144,7 +9144,7 @@ MonoBehaviour:
   posicionColor: 10
   nombreNahuatl: Chipauak
   "colorEspa\xF1ol": Blanco
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 1090cbf14bd2a1544962544069725bf6, type: 3}
   animacionBolita: {fileID: 124787775}
 --- !u!1 &504197786
 GameObject:
@@ -18779,7 +18779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &666973312
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19336,18 +19336,20 @@ MonoBehaviour:
   - {fileID: 53988668}
   - {fileID: 798527032}
   audiosPronunciacion:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 99c08ca6c504dae4d8cce4bbd626ec2a, type: 3}
+  - {fileID: 8300000, guid: caae30eef42f6334c885eb3ff8a02b0a, type: 3}
+  - {fileID: 8300000, guid: 080809ab60f34664bbeeea75e9ade197, type: 3}
+  - {fileID: 8300000, guid: 91351885daa170d468cc62f540e6574f, type: 3}
+  - {fileID: 8300000, guid: 693f1093344c5164e8e58173802dc5f2, type: 3}
+  - {fileID: 8300000, guid: 45b3a790cfa2c48499ac5ec15d1fbf28, type: 3}
+  - {fileID: 8300000, guid: 54e9d9cf3ad14c34eb1f3b18b24a8ff4, type: 3}
+  - {fileID: 8300000, guid: f12e12b79cb28d847bcd131b42edde2e, type: 3}
+  - {fileID: 8300000, guid: d2bbe02b1e29ee440ba51f28875d4a75, type: 3}
+  - {fileID: 8300000, guid: 1090cbf14bd2a1544962544069725bf6, type: 3}
   ocultarBotonSiNoDescubierto: 1
+  permitirAudioSinDescubrir: 0
   audioSourceTablet: {fileID: 0}
+  volumenAudioTablet: 1
 --- !u!4 &797149799
 Transform:
   m_ObjectHideFlags: 0
@@ -55551,7 +55553,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -56036,7 +56038,7 @@ MonoBehaviour:
   posicionColor: 5
   nombreNahuatl: Atenextik
   "colorEspa\xF1ol": Azul
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 693f1093344c5164e8e58173802dc5f2, type: 3}
   animacionBolita: {fileID: 601813521}
 --- !u!1001 &1005382229
 PrefabInstance:
@@ -57969,7 +57971,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -58454,7 +58456,7 @@ MonoBehaviour:
   posicionColor: 4
   nombreNahuatl: Xoxouik
   "colorEspa\xF1ol": Verde
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 91351885daa170d468cc62f540e6574f, type: 3}
   animacionBolita: {fileID: 1212437809}
 --- !u!1 &1219576381
 GameObject:
@@ -58778,7 +58780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -60497,7 +60499,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -60982,7 +60984,7 @@ MonoBehaviour:
   posicionColor: 2
   nombreNahuatl: Chilkostik
   "colorEspa\xF1ol": Naranja
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: caae30eef42f6334c885eb3ff8a02b0a, type: 3}
   animacionBolita: {fileID: 2094560144}
 --- !u!1 &1448293349 stripped
 GameObject:
@@ -62406,7 +62408,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -62891,7 +62893,7 @@ MonoBehaviour:
   posicionColor: 3
   nombreNahuatl: Kostik
   "colorEspa\xF1ol": Amarillo
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 080809ab60f34664bbeeea75e9ade197, type: 3}
   animacionBolita: {fileID: 1204578060}
 --- !u!1 &1561839525
 GameObject:
@@ -64340,7 +64342,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -64825,7 +64827,7 @@ MonoBehaviour:
   posicionColor: 8
   nombreNahuatl: Tlikostik
   "colorEspa\xF1ol": Cafe
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: f12e12b79cb28d847bcd131b42edde2e, type: 3}
   animacionBolita: {fileID: 1663113737}
 --- !u!1 &1685922959
 GameObject:
@@ -66015,7 +66017,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -66500,7 +66502,7 @@ MonoBehaviour:
   posicionColor: 7
   nombreNahuatl: Xochipaltik
   "colorEspa\xF1ol": Rosa
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 54e9d9cf3ad14c34eb1f3b18b24a8ff4, type: 3}
   animacionBolita: {fileID: 270791817}
 --- !u!1 &1722306621
 GameObject:
@@ -67187,7 +67189,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -67672,7 +67674,7 @@ MonoBehaviour:
   posicionColor: 1
   nombreNahuatl: Chichiltik
   "colorEspa\xF1ol": Rojo
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 99c08ca6c504dae4d8cce4bbd626ec2a, type: 3}
   animacionBolita: {fileID: 1012271925}
 --- !u!1 &1761979970
 GameObject:
@@ -68224,7 +68226,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -69407,7 +69409,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -70468,7 +70470,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -72329,7 +72331,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -72814,7 +72816,7 @@ MonoBehaviour:
   posicionColor: 9
   nombreNahuatl: Yayauik
   "colorEspa\xF1ol": Negro
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: d2bbe02b1e29ee440ba51f28875d4a75, type: 3}
   animacionBolita: {fileID: 1794888861}
 --- !u!1 &1960128429
 GameObject:
@@ -73750,7 +73752,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -74689,7 +74691,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -75951,7 +75953,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6e88a518d3e73e94b9a613c680fb076d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -76436,7 +76438,7 @@ MonoBehaviour:
   posicionColor: 6
   nombreNahuatl: Kamojti
   "colorEspa\xF1ol": Morado
-  audioPronunciacion: {fileID: 0}
+  audioPronunciacion: {fileID: 8300000, guid: 45b3a790cfa2c48499ac5ec15d1fbf28, type: 3}
   animacionBolita: {fileID: 389382998}
 --- !u!1 &2094560144 stripped
 GameObject:
