@@ -200,7 +200,7 @@ public class GuardianRango : MonoBehaviour
         TextMeshProUGUI textoBoton = boton.GetComponentInChildren<TextMeshProUGUI>();
         if (textoBoton != null)
         {
-            textoBoton.text = $"{opcion.nombreNahuatl} ({opcion.numero})";
+            textoBoton.text = $"{opcion.nombreNahuatl}";
         }
 
         int valorOpcion = opcion.numero;
